@@ -1,6 +1,8 @@
 package com.pesquisa.Pesquisa.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Genre implements Serializable {
@@ -9,6 +11,12 @@ public class Genre implements Serializable {
 
 	private long id;
 	private String Nome;
+	
+    private List<Game> games = new ArrayList<>();
+	
+	public List<Game> getGames() {
+		return games;
+	}
 
 	public Genre() {
 

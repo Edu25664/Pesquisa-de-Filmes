@@ -1,6 +1,9 @@
 package com.pesquisa.Pesquisa.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Game implements Serializable{
 	/**
@@ -12,7 +15,11 @@ public class Game implements Serializable{
 	private String title;
 	private Platform platform;
 	
+	private Genre genre;
 	
+	private List<Record> records = new ArrayList<>();
+	
+
 	public Game() {
 		
 	}
@@ -46,6 +53,18 @@ public class Game implements Serializable{
 
 	public void setPlatform(Platform platform) {
 		this.platform = platform;
+	}
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
+	}
+
+	public List<Record> getRecords() {
+		return records;
 	}
 
 }
