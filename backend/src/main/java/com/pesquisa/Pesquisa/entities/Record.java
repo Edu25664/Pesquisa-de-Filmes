@@ -2,12 +2,28 @@ package com.pesquisa.Pesquisa.entities;
 
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="tb_record")
 public class Record {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String nome;
 	private Integer age;
 	private String moment;
+	
+	@ManyToOne
+	@JoinColumn(name = "record_id")
+	private Game game;
 	
 	public Record() {
 		
@@ -68,6 +84,14 @@ public class Record {
 			return false;
 		Record other = (Record) obj;
 		return id == other.id;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
 	
 	
