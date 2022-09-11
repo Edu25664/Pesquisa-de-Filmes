@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.pesquisa.Pesquisa.entities.enuns.Platform;
+
 @Entity
 @Table(name ="tb_game")
 public class Game implements Serializable{
