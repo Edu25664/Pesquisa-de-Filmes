@@ -20,8 +20,8 @@ public class Genre implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String Nome;
+	private Long id;
+	private String Name;
 	
 	@OneToMany(mappedBy = "genre")
 	private List<Game> games = new ArrayList<>();
@@ -30,10 +30,10 @@ public class Genre implements Serializable {
 
 	}
 
-	public Genre(long id, String nome) {
+	public Genre(long id, String name) {
 		super();
 		this.id = id;
-		Nome = nome;
+		Name = name;
 	}
 
 	public List<Game> getGames() {
@@ -48,12 +48,12 @@ public class Genre implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return Nome;
+	public String getName() {
+		return Name;
 	}
 
-	public void setNome(String nome) {
-		Nome = nome;
+	public void setName(String name) {
+		Name = name;
 	}
 
 	@Override

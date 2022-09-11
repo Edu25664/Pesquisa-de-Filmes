@@ -1,5 +1,6 @@
 package com.pesquisa.Pesquisa.entities;
 
+import java.time.Instant;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -16,41 +17,41 @@ public class Record {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	private String nome;
-	private Integer age;
-	private String moment;
-	
+	private Long id;
 	@ManyToOne
-	@JoinColumn(name = "record_id")
+	@JoinColumn(name = "game_id")
 	private Game game;
+	private String name;
+	private Integer age;
+	private Instant moment;
 	
 	public Record() {
 		
 	}
+	
+	
 
-	public Record(long id, String nome, Integer age, String moment) {
-		super();
+	public Record(Long id, String nome, Integer age, Instant moment) {
 		this.id = id;
-		this.nome = nome;
+		this.name = nome;
 		this.age = age;
 		this.moment = moment;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
 	public String getNome() {
-		return nome;
+		return name;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.name = nome;
 	}
 
 	public Integer getAge() {
@@ -61,11 +62,11 @@ public class Record {
 		this.age = age;
 	}
 
-	public String getMoment() {
+	public Instant getMoment() {
 		return moment;
 	}
 
-	public void setMoment(String moment) {
+	public void setMoment(Instant moment) {
 		this.moment = moment;
 	}
 
@@ -93,7 +94,6 @@ public class Record {
 	public void setGame(Game game) {
 		this.game = game;
 	}
-	
 	
 
 }
