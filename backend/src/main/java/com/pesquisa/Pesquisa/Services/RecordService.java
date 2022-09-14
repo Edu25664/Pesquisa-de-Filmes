@@ -4,15 +4,17 @@ package com.pesquisa.Pesquisa.Services;
 import java.time.Instant;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pesquisa.Pesquisa.entities.Game;
-import com.pesquisa.Pesquisa.entities.Record;
 import com.pesquisa.Pesquisa.DTO.RecordDTO;
 import com.pesquisa.Pesquisa.DTO.RecordInsertDTO;
 import com.pesquisa.Pesquisa.Repositories.GameRepository;
 import com.pesquisa.Pesquisa.Repositories.RecordRepository;
+import com.pesquisa.Pesquisa.entities.Game;
+import com.pesquisa.Pesquisa.entities.Record;
 
 @Service
 public class RecordService {
@@ -35,8 +37,12 @@ public class RecordService {
 		
 		 entity = recordRepository.save(entity);
 		 return new RecordDTO(entity);
-		
 	    
+	}
+
+	public Page<RecordDTO> findByMoments(Instant minDate, Instant maxDate, PageRequest pageRequest) {
+	
+		return recordRepository.findByMoments(minDate, maxDate, pageRequest).map(x -> new RecordDTO(x));
 	}
 
 } 
