@@ -13,9 +13,7 @@ import com.pesquisa.Pesquisa.entities.Record;
 @Repository
 public interface RecordRepository extends JpaRepository<Record, Long>{
 
-	@Query("SELECT obj FROM Record obj WHERE "
-			+ "(:minDate is NULL OR obj.moment >= :minDate) AND "
-			+ "(:maxDate is NULL OR obj.moment <= :maxDate) ")
+	@Query("SELECT obj FROM Record obj WHERE obj.moment >= :minDate AND obj.moment <= :maxDate")
 	Page<Record> findByMoments(Instant minDate, Instant maxDate, Pageable pageable);
 }
- 
+ 	
