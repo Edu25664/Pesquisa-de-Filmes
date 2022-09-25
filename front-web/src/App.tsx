@@ -1,8 +1,15 @@
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import Home from "./Pages/Home";
 
 function App() {
   return (
-    <h1>Meu projeto</h1>
+    <>
+      <div>
+        <Header />
+        <Home/>
+      </div>
+    </>
   );
 }
 
